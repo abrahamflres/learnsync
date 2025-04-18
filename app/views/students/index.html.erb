@@ -2,3 +2,27 @@
 
 <%= link_to "Sign Out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }%>
 
+<%= link_to "View Profile", student_path(current_user.student)%>
+
+<table>
+  <thead>
+    <tr>
+      <th>Course Name</th>
+      <th>Subject Code</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @courses.each do |course| %>
+      <tr>
+        <td><%= course.coursename %></td>
+        <td><%= course.subjectcode %></td>
+        <td><%= link_to "Enroll"%></td>
+        <td><%= link_to "Show", course_path(course) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+

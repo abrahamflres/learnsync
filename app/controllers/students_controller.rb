@@ -1,5 +1,6 @@
 class StudentsController < ApplicationController
   def index
+    @courses = Course.all
   end
   def new
     if current_user.student.present?
@@ -9,6 +10,11 @@ class StudentsController < ApplicationController
       @student = current_user.build_student
     end
   end
+
+  def show
+    @student = Student.find(params[:id])
+  end
+
 
   def create
     @student = current_user.build_student(student_params)
