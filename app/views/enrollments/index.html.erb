@@ -1,0 +1,19 @@
+<h1>Your Enrollments</h1>
+
+<h2>My Enrollments</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Course Name</th>
+      <th>Subject Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @enrollments.each do |enrollment| %>
+      <tr>
+        <td><%= enrollment.course.coursename %></td>
+        <td><%= enrollment.course.subjectcode %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,1 +1,13 @@
 <h1>User Profile</h1>
+
+<ul>
+    <li><%= @student.firstname%><%= @student.lastname%></li> 
+    <li><%= "Degree type: #{@student.degree} "%><%= "Major: #{@student.major} "%><%= "Year Standing: #{@student.yearstanding} "%></li> 
+</ul>
+
+
+<%# user deletion, password, email %>
+ <%= link_to "Account Settings", edit_user_registration_path%>
+
+ <%# Student Profile edit and update %>
+  <%= link_to "Edit Student Profile", edit_student_path%>

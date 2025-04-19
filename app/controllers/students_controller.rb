@@ -40,6 +40,10 @@ class StudentsController < ApplicationController
     end
   end
 
+  def destroy
+    @student = Student.find(params[:id])
+  end
+
 
 private
   def student_params

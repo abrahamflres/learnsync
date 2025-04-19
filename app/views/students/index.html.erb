@@ -2,7 +2,13 @@
 
 <%= link_to "Sign Out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }%>
 
-<%= link_to "View Profile", student_path(current_user.student)%>
+<%= link_to "Create Student Profile", new_student_path%>
+
+<%= link_to "Student Profile", student_path(current_user.student) %>
+
+<%= link_to "Enrollments", enrollments_index_path %>
+
+
 
 <table>
   <thead>
@@ -17,7 +23,8 @@
       <tr>
         <td><%= course.coursename %></td>
         <td><%= course.subjectcode %></td>
-        <td><%= link_to "Enroll"%></td>
+        <td><%= link_to "Enroll", enroll_course_path(course), method: :post, data: { turbo: false } %></td>
+
         <td><%= link_to "Show", course_path(course) %></td>
       </tr>
     <% end %>
