@@ -1,11 +1,11 @@
-<h1>Your Enrollments</h1>
 
 <h2>My Enrollments</h2>
-<table>
+<table class= "table table-striped">
   <thead>
     <tr>
       <th>Course Name</th>
       <th>Subject Code</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -13,6 +13,10 @@
       <tr>
         <td><%= enrollment.course.coursename %></td>
         <td><%= enrollment.course.subjectcode %></td>
+        
+        <td><%= enrollment.course.description%></td>
+
+
       </tr>
     <% end %>
   </tbody>

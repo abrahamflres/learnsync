@@ -4,4 +4,6 @@ class Enrollment < ApplicationRecord
 
   validates :student_id, presence: true
   validates :course_id, presence: true
+
+  validates :course_id, uniqueness: { scope: :student_id, message: "Enrollment Error: your currently enrolled" }
 end

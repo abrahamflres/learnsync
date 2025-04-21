@@ -2,13 +2,14 @@ class EnrollmentsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @course = Course.find(params[:id])
+    @course = Course.find(params[:course_id])
     @enrollment = current_user.student.enrollments.build(course: @course)
 
     if @enrollment.save
-      redirect_to enrollments_index_path, notice: "sucessfull"
+      redirect_to students_path, notice: "Enrolled successfully!"
     else
-      redirect_to students_path, notice: "unsucessfull"
+
+      redirect_to root_path, notice: "Enrollment failed"
     end
   end
   def index

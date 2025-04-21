@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   get "students/new"
   get "students/create"
 
+  resources :enrollments, only: [ :index, :create ]
+
+
+
   resources :courses
   devise_for :users
 
