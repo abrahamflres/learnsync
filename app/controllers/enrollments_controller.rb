@@ -20,7 +20,7 @@ class EnrollmentsController < ApplicationController
   end
 
   def create
-    @course = Course.find(params[:course_id])
+    @course = Course.find(params[:id])
     @enrollment = current_user.student.enrollments.build(course: @course)
 
     if @enrollment.save

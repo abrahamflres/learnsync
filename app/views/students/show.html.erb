@@ -1,13 +1,21 @@
-<h1>User Profile</h1>
+<div class="container mt-5">
+  <h1 class="display-4 text-center mb-4">User Profile</h1>
 
-<ul>
-    <li><%= @student.firstname%><%= @student.lastname%></li> 
-    <li><%= "Degree type: #{@student.degree} "%><%= "Major: #{@student.major} "%><%= "Year Standing: #{@student.yearstanding} "%></li> 
-</ul>
+  <div class="card p-4 shadow-sm">
+    <h3 class="card-title mb-3">Student Information</h3>
 
+    <ul class="list-unstyled">
+      <li><strong>Name:</strong> <%= @student.firstname %> <%= @student.lastname %></li>
+      <li><strong>Degree:</strong> <%= @student.degree %></li>
+      <li><strong>Major:</strong> <%= @student.major %></li>
+      <li><strong>Year Standing:</strong> <%= @student.yearstanding %></li>
+    </ul>
 
-<%# user deletion, password, email %>
- <%= link_to "Account Settings", edit_user_registration_path%>
+    <hr class="my-4">
 
- <%# Student Profile edit and update %>
-  <%= link_to "Edit Student Profile", edit_student_path%>
+    <div class="d-flex justify-content-between">
+      <%= link_to "Account Settings", edit_user_registration_path, class: "btn btn-outline-primary" %>
+      <%= link_to "Edit Student Profile", edit_student_path, class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+</div>
