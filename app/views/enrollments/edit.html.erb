@@ -1,0 +1,12 @@
+<h2>Edit Enrollment Note</h2>
+
+<%= form_with model: @enrollment, local: true do |form| %>
+  <div class="field">
+    <%= form.label :note %><br>
+    <%= form.text_area :note, rows: 5 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Update Note" %>
+  </div>
+<% end %>
