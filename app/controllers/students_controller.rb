@@ -1,5 +1,6 @@
 class StudentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_student, only: [ :show, :edit, :update, :destroy ]
   def index
     @courses = Course.all
   end
@@ -12,9 +13,7 @@ class StudentsController < ApplicationController
     end
   end
 
-  def show
-    @student = Student.find(params[:id])
-  end
+  def show; end
 
 
   def create
@@ -26,14 +25,10 @@ class StudentsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-  def edit
-    @student = Student.find_by(params[:id])
-  end
+  def edit; end
+
 
   def update
-    @student = Student.find_by(params[:id])
-
-
     if @student.update(student_params)
       redirect_to students_path
     else
@@ -41,13 +36,15 @@ class StudentsController < ApplicationController
     end
   end
 
-  def destroy
-    @student = Student.find(params[:id])
-  end
+  def destroy; end
 
 
 private
   def student_params
     params.require(:student).permit(:firstname, :lastname, :yearstanding, :major, :minor, :degree)
+  end
+
+  def set_student
+    @student = Student.find(params[:id])
   end
 end
