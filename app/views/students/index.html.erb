@@ -14,7 +14,7 @@
         <td><%= course.coursename %></td>
         <td><%= course.subjectcode %></td>
         <td><%= course.description %></td>
-        <td><%= button_to "Enroll", enrollments_path(course_id: course.id), method: :post %></td>
+        <td><%= button_to "Enroll", student_enrollments_path(current_user.student, course_id: course.id), method: :post %></td>
         <td><%= link_to "Show", course_path(course) %></td>
       </tr>
     <% end %>

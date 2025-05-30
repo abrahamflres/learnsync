@@ -1,7 +1,9 @@
 class StudentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_student, only: [ :show, :edit, :update, :destroy ]
+  # students are allowed to see profile, edit profile, and delete profile
   def index
+    @student = current_user.student
     @courses = Course.all
   end
   def new

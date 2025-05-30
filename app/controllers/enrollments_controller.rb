@@ -1,11 +1,12 @@
 class EnrollmentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_student
   def edit
-    @enrollment = current_user.student.enrollments.find(params[:id])
+    @enrollment = @student.enrollments.find(params[:id])
   end
 
   def update
-    @enrollment = current_user.student.enrollments.find(params[:id])
+    @enrollment = @student.enrollments.find(params[:id])
     if @enrollment.update(enrollment_params)
       redirect_to enrollments_path, notice: "Note updated"
     else
@@ -14,14 +15,15 @@ class EnrollmentsController < ApplicationController
   end
 
   def destroy
-    @enrollment = current_user.student.enrollments.find(params[:id])
+    @enrollment = @student.enrollments.find(params[:id])
     @enrollment.destroy
     redirect_to enrollments_path, notice: "Unenrolled Suucess"
   end
 
   def create
-    @course = Course.find(params[:id])
-    @enrollment = current_user.student.enrollments.build(course: @course)
+    @course = Course.find(params[:course_id])
+
+    @enrollment = @student.enrollments.build(course: @course)
 
     if @enrollment.save
       redirect_to students_path, notice: "Enrolled successfully!"
@@ -31,12 +33,19 @@ class EnrollmentsController < ApplicationController
     end
   end
   def index
-    @enrollments = current_user.student.enrollments
+    @enrollments = @student.enrollments
+  end
+
+  def show
+    @enrollment = @student.enrollments.find(params[:id])
   end
 
   private
 
   def enrollment_params
     params.require(:enrollment).permit(:note)
+  end
+  def set_student
+    @student = current_user.student
   end
 end
