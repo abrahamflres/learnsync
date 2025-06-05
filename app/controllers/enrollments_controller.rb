@@ -8,7 +8,7 @@ class EnrollmentsController < ApplicationController
   def update
     @enrollment = @student.enrollments.find(params[:id])
     if @enrollment.update(enrollment_params)
-      redirect_to enrollments_path, notice: "Note updated"
+      redirect_to student_enrollments_path, notice: "Note updated"
     else
       render :edit, alert: "Update error"
     end
@@ -17,7 +17,7 @@ class EnrollmentsController < ApplicationController
   def destroy
     @enrollment = @student.enrollments.find(params[:id])
     @enrollment.destroy
-    redirect_to enrollments_path, notice: "Unenrolled Suucess"
+    redirect_to students_path, notice: "Unenrolled Suucess"
   end
 
   def create
@@ -26,7 +26,7 @@ class EnrollmentsController < ApplicationController
     @enrollment = @student.enrollments.build(course: @course)
 
     if @enrollment.save
-      redirect_to students_path, notice: "Enrolled successfully!"
+      redirect_to student_enrollments_path, notice: "Enrolled successfully!"
     else
 
       redirect_to root_path, notice: "Enrollment failed"
