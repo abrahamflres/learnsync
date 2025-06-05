@@ -6,16 +6,30 @@
   <nav class="bg-light border-end p-3 vh-100" style="width: 220px;">
     <ul class="nav flex-column">
       <li class="nav-item">
-        <%= link_to "Dashboard", students_path, class: "nav-link text-dark" %>
+        <strong><%= link_to "LearnSync", students_path, class: "nav-link text-dark" %></strong>
       </li>
       <li class="nav-item">
-        <%= link_to "Enrollments", student_enrollments_path(current_user.student), class: "nav-link text-dark" %>
+        
+        <%= link_to students_path, class: "nav-link text-dark" do %>
+          <i class="fa-solid fa-gauge"></i>Dashboard
+        <%end%>
+
       </li>
       <li class="nav-item">
-        <%= link_to "Profile",  student_path(current_user.student), class: "nav-link text-dark" %>
+        <%= link_to  student_enrollments_path(current_user.student), class: "nav-link text-dark" do %>
+        <i class="fa-solid fa-layer-group"></i>Enrollments
+
+        <%end%>
       </li>
       <li class="nav-item">
-        <%= link_to "Sign Out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure you want to sign out?" }, class: "nav-link text-dark" %>
+        <%= link_to student_path(current_user.student), class: "nav-link text-dark" do %>
+          <i class="fa-solid fa-user"></i>Profile
+        <%end%>
+      </li>
+      <li class="nav-item">
+        <%= link_to  destroy_user_session_path, method: :delete, data: { confirm: "Are you sure you want to sign out?" } , class: "nav-link text-dark" do %>
+          <i class="fa-solid fa-power-off"></i>Sign Out
+        <%end%>
       </li>
     </ul>
   </nav>
