@@ -5,6 +5,13 @@
     <h3 class="card-title mb-3">Student Information</h3>
 
     <ul class="list-unstyled">
+      <% if @student.image.attached? %>
+        <%= image_tag @student.image %>
+      <% else %>
+        <p>No image uploaded.</p>
+      <% end %>
+
+
       <li><strong>Name:</strong> <%= @student.firstname %> <%= @student.lastname %></li>
       <li><strong>Degree:</strong> <%= @student.degree %></li>
       <li><strong>Major:</strong> <%= @student.major %></li>
