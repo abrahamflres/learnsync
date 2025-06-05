@@ -27,13 +27,28 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
-      <%= render "layouts/heading"%>
+      <% if user_signed_in? && current_user.student&.persisted? %>
+    <div class="d-flex">
+      <%= render "layouts/sidebar-nav" %>
 
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      
-    <%= yield %>
-    <%= render "layouts/footer"%>
+      <div class="flex-grow-1 d-flex flex-column min-vh-100">
+        <main class="flex-grow-1">
+          <%= yield %>
+        </main>
+        <%= render "layouts/footer" %>
+      </div>
+    </div>
+  <% else %>
+    <%= render "layouts/heading" %>
+
+    <main>
+      <%= yield %>
+    </main>
+
+    <%= render "layouts/footer" %>
+  <% end %>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 
   </body>
