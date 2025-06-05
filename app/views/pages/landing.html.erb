@@ -1,7 +1,13 @@
-<h1><strong>LearnSync</strong></h1>
+<div class="min-vh-100 d-flex align-items-center justify-content-center text-white"
+     style="background: linear-gradient(rgba(0,0,0,0.6), rgba(240, 240, 240, 0.6)), url(<%= asset_path('school.jpg') %>) center/cover no-repeat;">
+  <div class="text-center">
+    <h1 class="display-3 fw-bold mb-3">LearnSync</h1>
+    <p class="lead mb-4">Simplifying Course Management, Empowering Education</p>
 
-<p>Simplifying Course Management, Empowering Education</p>
+    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+      <%= link_to "Create Student Account", new_user_registration_path, class: "btn btn-primary btn-lg px-4" %>
+      <%= link_to "Login Student Account", new_user_session_path, class: "btn btn-outline-light btn-lg px-4" %>
+    </div>
+  </div>
+</div>
 
-<%=link_to "Create Student Account",new_user_registration_path, class: "btn - btn-primary" %> 
-
-<%=link_to "Login Student Account",new_user_session_path, class: "btn - btn-secondary" %> 
