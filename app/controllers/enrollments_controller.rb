@@ -43,7 +43,7 @@ class EnrollmentsController < ApplicationController
   private
 
   def enrollment_params
-    params.require(:enrollment).permit(:note)
+    params.require(:enrollment).permit(:note, :image)
   end
   def set_student
     @student = current_user.student

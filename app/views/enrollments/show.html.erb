@@ -1,4 +1,6 @@
 <h1><%=@enrollment.course.coursename %></h1>
+<%= image_tag @enrollment.image %>
+
 <p><%=@enrollment.course.description %></p>
 <%=link_to "Back", student_enrollments_path(@student, @enrollment) %> 
-<%= link_to "Add a note", edit_student_enrollment_path(@student, @enrollment)%>
+<%= link_to "Update", edit_student_enrollment_path(@student, @enrollment)%>
