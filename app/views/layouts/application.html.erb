@@ -28,7 +28,7 @@
   </head>
   <body>
       <% if user_signed_in? && current_user.student&.persisted? %>
-    <div class="d-flex">
+
       <%= render "layouts/sidebar-nav" %>
 
       <div class="flex-grow-1 d-flex flex-column min-vh-100">

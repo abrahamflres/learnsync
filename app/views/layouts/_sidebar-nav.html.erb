@@ -9,18 +9,21 @@
         <strong><%= link_to "LearnSync", students_path, class: "nav-link text-dark" %></strong>
       </li>
       <li class="nav-item">
-        
         <%= link_to students_path, class: "nav-link text-dark" do %>
           <i class="fa-solid fa-gauge"></i>Dashboard
         <%end%>
-
       </li>
       <li class="nav-item">
         <%= link_to  student_enrollments_path(current_user.student), class: "nav-link text-dark" do %>
         <i class="fa-solid fa-layer-group"></i>Enrollments
-
         <%end%>
       </li>
+      <li class="nav-item">
+        <%= link_to  student_todos_path(current_user.student), class: "nav-link text-dark" do %>
+        <i class="fa-solid fa-list"></i>To-Do's
+        <%end%>
+      </li>
+
       <li class="nav-item">
         <%= link_to student_path(current_user.student), class: "nav-link text-dark" do %>
           <i class="fa-solid fa-user"></i>Profile

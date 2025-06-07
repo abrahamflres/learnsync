@@ -1,0 +1,8 @@
+<h1><%= "#{@student.firstname}'s Todo's"%></h1>
+<ul>
+  <% @todos.each do |x|%>
+    <h4><strong><%= x.title%></strong></h4>
+    <li><%= x.description%></li>
+    <li><%= x.completed%></li>
+  <%end%>
+</ul>

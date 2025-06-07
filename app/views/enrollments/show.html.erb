@@ -1,5 +1,9 @@
 <h1><%=@enrollment.course.coursename %></h1>
-<%= image_tag @enrollment.image %>
+<% if @enrollment.image.attached?%>
+  <%= image_tag @enrollment.image,width: 280, height: 280%>
+<%else%>
+  <p>Does not have image<p>
+<%end%>
 
 <p><%=@enrollment.course.description %></p>
 <%=link_to "Back", student_enrollments_path(@student, @enrollment) %> 

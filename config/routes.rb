@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "todo/index"
+  get "todo/show"
   devise_for :users
   resources :courses, only: [ :show, :index ]
 
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :students do
     resources :enrollments, only: [ :index, :create, :edit, :update, :destroy, :show ]
+    resources :todos
   end
 
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
