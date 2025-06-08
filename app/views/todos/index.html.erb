@@ -1,8 +1,22 @@
 <h1><%= "#{@student.firstname}'s Todo's"%></h1>
-<ul>
-  <% @todos.each do |x|%>
-    <h4><strong><%= x.title%></strong></h4>
-    <li><%= x.description%></li>
-    <li><%= x.completed%></li>
-  <%end%>
-</ul>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Completed</th>
+      <th>Finished?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @todos.each do |todo| %>
+      <tr>
+        <td><%= todo.title %></td>
+        <td><%= todo.description %></td>
+        <td><%= todo.completed %></td>
+        <td><%= button_to "Done", "#" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -17,7 +17,7 @@
         <td><%= enrollment.course.subjectcode %></td>
         <td><%= enrollment.course.description%></td>
         <td><%= enrollment.note %></td>
-        <td><%= link_to "Unenroll", student_enrollment_path(@student, enrollment), method: :delete, data: { confirm: "Are you sure?" } %></td>
+        <td><%= button_to "Unenroll", student_enrollment_path(@student, enrollment), method: :delete, data: { confirm: "Are you sure?" } %></td>
         <td><%= link_to "Show Enrollment",  student_enrollment_path(@student, enrollment)%></td>
         
       </tr>
