@@ -18,7 +18,7 @@
         <td><%= todo.title %></td>
         <td><%= todo.description %></td>
         <td><%= link_to "View", student_todo_path(@student, todo)%></td>
-        <td><%= link_to "Done", student_todo_path(@student, todo), method: :delete,  data: { confirm: "Are you sure?" }%></td>
+        <td><%= link_to "Done", student_todo_path(@student, todo), method: :delete,  data: { confirm: "Are you sure?" }, class: "btn btn-success"%></td>
       </tr>
     <% end %>
   </tbody>

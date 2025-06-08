@@ -19,7 +19,7 @@ class TodosController < ApplicationController
   end
 
   def create
-    @todo = @student.build_todo(todo_params)
+    @todo = @student.todos.create(todo_params)
 
     if @todo.save
       redirect_to student_todos_path
@@ -35,6 +35,6 @@ private
   end
 
   def todo_params
-    params.require(:todos).permit(:title, :description, :completed)
+    params.require(:todo).permit(:title, :description, :completed)
   end
 end
