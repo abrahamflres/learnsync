@@ -1,11 +1,14 @@
 <h1><%= "#{@student.firstname}'s Todo's"%></h1>
 
+<br>
+<%=link_to "Create Task + ", new_student_todo_path(@student), class: "btn btn-primary"%>
+
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Title</th>
       <th>Description</th>
-      <th>Completed</th>
+      <th>View Task</th>
       <th>Finished?</th>
     </tr>
   </thead>
@@ -14,8 +17,8 @@
       <tr>
         <td><%= todo.title %></td>
         <td><%= todo.description %></td>
-        <td><%= todo.completed %></td>
-        <td><%= button_to "Done", "#" %></td>
+        <td><%= link_to "View", student_todo_path(@student, todo)%></td>
+        <td><%= link_to "Done", student_todo_path(@student, todo), method: :delete,  data: { confirm: "Are you sure?" }%></td>
       </tr>
     <% end %>
   </tbody>

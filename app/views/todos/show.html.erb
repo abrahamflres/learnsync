@@ -1,2 +1,4 @@
-<h1>Todo#show</h1>
-<p>Find me in app/views/todo/show.html.erb</p>
+<h1><%=@todo.title%></h1>
+<p><%=@todo.description%></p>
+
+<%= link_to "Return to Todo's", student_todos_path(@student), class:"btn btn-primary"%>

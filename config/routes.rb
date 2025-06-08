@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get "todo/index"
-  get "todo/show"
   devise_for :users
   resources :courses, only: [ :show, :index ]
 
