@@ -1,26 +1,37 @@
-<%# TODO: Implement search bar %>
+<h1>All Courses</h1>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Course Name</th>
-      <th>Subject Code</th>
-      <th>Description</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @courses.each do |course| %>
+<%= search_form_for @q, url: students_path, method: :get do |f| %>
+  <div class="mb-3">
+    <%= f.label :coursename_cont, "Search by Course Name" %>
+    <%= f.search_field :coursename_cont, class: "form-control" %>
+  </div>
+  <%= f.submit "Search", class: "btn btn-primary" %>
+<% end %>
+
+<% if @courses.any? %>
+  <table class="table table-striped mt-4">
+    <thead>
       <tr>
-        <td><%= course.coursename %></td>
-        <td><%= course.subjectcode %></td>
-        <td><%= course.description %></td>
-        <td><%= button_to "Enroll", student_enrollments_path(current_user.student, course_id: course.id), method: :post %></td>
-        <td><%= link_to "Show", course_path(course) %></td>
+        <th>Course Name</th>
+        <th>Subject Code</th>
+        <th>Description</th>
+        <th>Actions</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
-
+    </thead>
+    <tbody>
+      <% @courses.each do |course| %>
+        <tr>
+          <td><%= course.coursename %></td>
+          <td><%= course.subjectcode %></td>
+          <td><%= course.description %></td>
+          <td>
+            <%= button_to "Enroll", student_enrollments_path(current_user.student, course_id: course.id), method: :post, class: "btn btn-success btn-sm" %>
+            <%= link_to "Show", course_path(course), class: "btn btn-info btn-sm" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p class="mt-4 text-muted">No courses found matching your search.</p>
+<% end %>

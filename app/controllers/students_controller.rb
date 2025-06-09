@@ -5,6 +5,9 @@ class StudentsController < ApplicationController
   def index
     @student = current_user.student
     @courses = Course.all
+
+    @q= Course.ransack(params[:q])
+    @courses = @q.result
   end
   def new
     if current_user.student.present?
