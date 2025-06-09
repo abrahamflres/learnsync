@@ -2,6 +2,7 @@ class TodosController < ApplicationController
   before_action :set_student
   def index
     @todos = @student.todos
+    @enrollments = @student.enrollments.includes(:course)
   end
 
   def show
@@ -16,6 +17,7 @@ class TodosController < ApplicationController
 
   def new
     @todo = @student.todos.new
+    @enrollments = @student.enrollments.includes(:course)
   end
 
   def create
@@ -35,6 +37,6 @@ private
   end
 
   def todo_params
-    params.require(:todo).permit(:title, :description, :completed)
+    params.require(:todo).permit(:title, :description, :completed, :enrollment_id)
   end
 end

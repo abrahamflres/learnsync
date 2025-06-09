@@ -11,6 +11,9 @@
   <%= form.label :description %>
   <%= form.text_field :description %>
 
+  <%= form.label :enrollment_id, "Select Course" %>
+  <%= form.collection_select :enrollment_id, @enrollments, :id, ->(e) { e.course.coursename }, prompt: "Choose a course", class: "form-control" %>
+
   <%= form.label :completed %>
   <%= form.text_field :completed %>
 

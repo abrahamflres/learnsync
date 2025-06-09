@@ -1,6 +1,7 @@
 class Enrollment < ApplicationRecord
   belongs_to :student
   belongs_to :course
+  has_many :todo
 
   validates :student_id, presence: true
   validates :course_id, presence: true
