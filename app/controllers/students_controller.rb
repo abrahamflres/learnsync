@@ -4,10 +4,10 @@ class StudentsController < ApplicationController
   # students are allowed to see profile, edit profile, and delete profile
   def index
     @student = current_user.student
-    @courses = Course.all
+
 
     @q= Course.ransack(params[:q])
-    @courses = @q.result
+    @courses= @q.result
   end
   def new
     if current_user.student.present?
