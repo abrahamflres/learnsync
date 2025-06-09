@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_07_200017) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_09_221641) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -79,6 +79,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_07_200017) do
     t.integer "student_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "enrollment_id"
+    t.index ["enrollment_id"], name: "index_todos_on_enrollment_id"
     t.index ["student_id"], name: "index_todos_on_student_id"
   end
 
@@ -100,5 +102,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_07_200017) do
   add_foreign_key "enrollments", "courses"
   add_foreign_key "enrollments", "students"
   add_foreign_key "students", "users"
+  add_foreign_key "todos", "enrollments"
   add_foreign_key "todos", "students"
 end
