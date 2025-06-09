@@ -8,7 +8,7 @@
     <tr>
       <th>Title</th>
       <th>Description</th>
-      <th>View Task</th>
+      <th>Course</th>
       <th>Finished?</th>
     </tr>
   </thead>
@@ -17,6 +17,8 @@
       <tr>
         <td><%= todo.title %></td>
         <td><%= todo.description %></td>
+        <td><%= todo.enrollment.course.coursename if todo.enrollment && todo.enrollment.course %></td>
+
         <td><%= link_to "View", student_todo_path(@student, todo)%></td>
         <td><%= link_to "Done", student_todo_path(@student, todo), method: :delete,  data: { confirm: "Are you sure?" }, class: "btn btn-success"%></td>
       </tr>
