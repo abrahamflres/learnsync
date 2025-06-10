@@ -3,6 +3,9 @@ class TodosController < ApplicationController
   def index
     @todos = @student.todos
     @enrollments = @student.enrollments.includes(:course)
+
+    @q = @student.todos.ransack(params[:q])
+    @todos = @q.result.includes(enrollment: :course)
   end
 
   def show

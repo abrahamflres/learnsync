@@ -1,12 +1,30 @@
 <h1><%= "#{@student.firstname}'s Todo's"%></h1>
 
-<br>
+
+
+
+<%= search_form_for @q, url: student_todos_path, method: :get do |f| %>
+  <%= f.label :enrollment_course_coursename_cont, "Course Name" %>
+  <%= f.search_field :enrollment_course_coursename_cont %>
+
+  <%= f.label :title_cont, "Title" %>
+  <%= f.search_field :title_cont %>
+
+  <%= f.label :description_cont, "Description" %>
+  <%= f.search_field :description_cont %>
+
+  <%= f.submit "Search" %>
+<% end %>
+
+
+
+
 <%=link_to "Create Task + ", new_student_todo_path(@student), class: "btn btn-primary"%>
 
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Title</th>
+      <th>Todo Title</th>
       <th>Description</th>
       <th>Course</th>
       <th>Finished?</th>
