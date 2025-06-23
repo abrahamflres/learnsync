@@ -1,19 +1,20 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  firstname: MyString
-  lastname: MyString
-  yearstanding: MyString
-  major: MyString
-  minor: MyString
-  degree: MyString
+  firstname: John
+  lastname: Doe
+  yearstanding: Freshman
+  major: Computer Science
+  minor: Mathematics
+  degree: BSc
   user: one
 
 two:
-  firstname: MyString
-  lastname: MyString
-  yearstanding: MyString
-  major: MyString
-  minor: MyString
-  degree: MyString
+  firstname: Jane
+  lastname: Smith
+  yearstanding: Sophomore
+  major: Biology
+  minor: Chemistry
+  degree: BSc
   user: two
+

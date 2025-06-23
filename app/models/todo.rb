@@ -4,7 +4,7 @@ class Todo < ApplicationRecord
 
   validates :title, presence: true
 
-  delegate :course, to: :enrollment, allow_nil: true
+
 
   def self.ransackable_attributes(auth_object = nil)
     [ "title", "description", "due_date", "completed", "course_id", "enrollment_id" ]
